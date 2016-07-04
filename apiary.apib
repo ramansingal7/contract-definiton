@@ -1,0 +1,394 @@
+FORMAT: 1A
+HOST: http://172.26.248.151:8080/guestservice
+
+# Guest Service
+The purpose of this service is to manage Guest details like Personal Details, Identification details, Visa details, Social media account details, Loyalty Levels etc.
+This document explains how to get started using the Guest api. This document is intended for developers who want to write applications that can interact with the Guest API.
+The main features of the API are as follows-
+
+ 
+
+- Delete guest Information.
+
+- Retrieve guests information by guest id
+
+- Update guest information
+
+- Retrieve guests information list
+
+- Insert Guest Information
+
+- Retrieve guests information by user account id
+
+# Group guest
+
+## Guests By Id [/guests/{id}]
++ Parameters
+    + id (, required)
+
+        guest id to extract guest record
+        
+### GuestsById [GET]
+Retrieves a guest based on guest id
+
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+        
+    +   Attributes (Guest)
+
++ Response 401 
+
+        {
+            unauthorized
+        }
+        
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404
+
+        {
+            Not Found
+        }
+
+### update Guest [PUT]
+update guest.
+
++ Request (application/json)
+
+    + Attributes (Guest)
+
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
+    + Attributes (Guest)
+
++ Response 500 
+
+        {
+            Internal Server Error
+        }
+
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+### delete Guest [DELETE]
+Delete a guest
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+    
++ Response 500 
+
+        {
+            Internal Server Error
+        }
+
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+## Guests [/guests{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
+
+### list Guests [GET]
+list guest data
+
++ Parameters
+
+    + lastNameContains (, optional)
+
+        search based on last name
+    
+    + firstNameContains (, optional)
+
+        search based on first name
+
+    + guestIds (, optional)
+
+        search based on guestids
+
+    + shipId (, optional)
+
+        search based on ship id
+
+    + stateroomIds (, optional)
+
+        search based on state room ids
+
+    + reservationStartDate (, optional)
+
+        search based on reservation Start Date
+
+    + reservationEndDate (, optional)
+
+        search based on reservation End Date
+
+    + modifiedParts (, optional)
+
+        search based on modified Parts
+
+    + reservationIds (, optional)
+
+        search based on reservation Ids
+
+    + passports (, optional)
+
+        search based on passport
+
+    + name (, optional)
+
+        search based on name
+        
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
+    + Attributes (array[Guest])    
+    
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+## Guests [/guests]
+
+### insert Guest [POST]
+insert guest data
+
++ Request (application/json)
+
+    + Attributes (Guest)
+
++ Response 201 (application/json)
+
+        {
+            Created
+        }
+
+    + Attributes (Guest)
+
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+## Guests Account By Id [/guests/account/{id}]
+
++ Parameters
+    + id (, required)
+
+        user account id to extract guest record
+
+
+### GuestsAccountById [GET]
+load guest by user account id
+
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
+    + Attributes (Guest)
+
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+        
+# Data Structures
+
+## Guest (object)
+
++ id: 1234 (number, required)
++ title: MSTR (string, optional) 
++ firstName: ETHAN (string, optional) 
++ middleName: MLAWSKI (string, optional) 
++ lastName: MLAWSKI (string, optional) 
++ nickName: xyz (string, optional) 
++ preferredName: xyz (string, optional) 
++ suffix: xyz (string, optional) 
++ birthDate: '1972-10-03' (string, optional) 
++ gender: M (string, optional) 
++ maritalStatus: Unknown (string, optional) 
++ occupation: xyz (string, optional) 
++ email: 'kristie_buss@yahoo.com' (string, optional) 
++ alternateEmail: 'kristie_buss@yahoo.com' (string, optional) 
++ anniversaryDate: '1972-10-03' (string, optional) 
++ birthCountryId (number, optional) 
++ citizenshipCountryId (number, optional) 
++ userAccountId (number, optional) 
++ addedDate (string, required) 
++ lastModifiedDate (string, required) 
++ deletedFlag (boolean, required)+ `phones` (array[phone], optional) 
++ reservations (array[reservation], optional) 
++ addresses (array[address], optional) 
++ identifications (array[identification], optional) 
++ visas (array[visa], optional) 
++ loyaltyLevels (array[loyaltyLevel], optional) 
+
+## phone (object)
+
+### Properties
++ phoneId: 75021 (number, required) 
++ phoneTypeId: 1 (string, optional) 
++ countryId: 232 (number, optional) 
++ areaCode: xyz (string, optional) 
++ number: 2019703511 (string, optional) 
++ lastModifiedDate: '2016-03-29' (string, required) 
+
+
+## reservation (object)
+
+### Properties
++ guestReservationId: 30826 (number, required) 
++ reservationNumber: 7Q5QP7 (string, optional) 
++ reservationId: 7026 (number, optional) 
++ stateroomId: 849 (number, optional) 
++ embarkDate: '2016-03-21' (string, optional) 
++ lastModifiedDate: 1459313689000 (string, optional) 
++ vipflag: 1 (boolean, optional) 
++ primaryFlag: 1 (boolean, optional) 
++ debarkDate: '2016-04-03' (string, optional) 
++ statusId: 1 (string, optional) 
++ loyaltyLevelTypeId: 102 (number, optional) 
++ identificationId: 84159 (number, optional) 
++ idVerifiedFlag: 0 (boolean, optional) 
++ sequenceNumber: 1 (number, optional) 
++ folioNumber: 4197 (string, optional) 
++ folios (array[folio], optional) 
+
+
+## folio (object)
+
+### Properties
++ folioId: 55921 (string, required) 
++ folioNumber: 4197 (string, optional) 
++ guestReservationId: 7 (number, optional) 
++ accessCardNumber: 31522105 (string, optional) 
++ folioStatus: A (string, optional) 
++ isGangwayAllowed: 0 (boolean, optional) 
+
+
+## address (object)
+
+
+### Properties
++ addressId: 48443 (number, required) 
++ line1: APT 202 (string, optional) 
++ line2:  100 MISTY PINES CIR (string, optional) 
++ city: WEST PARK (string, optional) 
++ state: FL (string, optional) 
++ lastModifiedDate: 1458556148000 (string, required) 
++ stateId: 103 (number, optional) 
++ countryId: 232 (number, optional) 
++ zip: 07081 (string, optional) 
+
+
+## identification (object)
+
+
+### Properties
++ identificationId: 84259 (number, required) 
++ documentTypeId: 1 (number, optional) 
++ number: 221377293 (string, optional) 
++ issueCountryId: 101 (number, optional) 
++ expiryDate: '2017-02-14' (string, optional) 
++ scanCopyMediaItemId: 5236 (number, optional) 
++ guestImageMediaItemId: 1235 (number, optional) 
++ lastModifiedDate: 1459240885000 (string, required) 
++ guestId: 4275 (number, optional) 
+
+
+## visa (object)
+
+
+### Properties
++ visaId: 1001 (number, required) 
++ issueCountryId: 101 (number, optional) 
++ number: AX102 (string, optional) 
++ issueDate: '2016-03-29' (string, optional) 
++ expiryDate: '2016-03-29' (string, optional) 
++ numberOfEntries: 12 (string, optional) 
++ mediaItemId: 102 (number, optional) 
++ lastModifiedDate: '2016-03-29' (string, required) 
+
+
+## loyaltyLevel (object)
+
+
+### Properties
++ loyaltyLevelId: 79692 (number, required) 
++ loyaltyLevelTypeId: 101 (number, optional) 
++ numberOfCruiseNights: 8 (number, optional) 
++ vifpnumber: xyz (string, optional) 
++ lastModifiedDate: '2016-03-29' (string, required)
