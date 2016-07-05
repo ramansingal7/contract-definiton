@@ -171,6 +171,18 @@ list guest data
     
         search based on depth
         
+    + pageNumber: xyz (, optional) 
+    
+        search based on pageNumber
+        
+    + maxResult: xyz (, optional) 
+    
+        search based on maxResult
+        
+    + orderBy: xyz (, optional) 
+    
+        search based on orderBy
+        
 + Response 200 (application/json)
 
         {
@@ -445,49 +457,65 @@ list reservation data
 
 + Parameters
 
-    + lastNameContains (, optional)
+    + lastNameContains: sa (, optional)
 
         search based on last name
     
-    + firstNameContains (, optional)
+    + firstNameContains: pra (, optional)
 
         search based on first name
 
-    + guestIds (, optional)
+    + guestIds: 123 (, optional)
 
         search based on guestids
 
-    + shipId (, optional)
+    + shipId: 101 (, optional)
 
         search based on ship id
 
-    + stateroomIds (, optional)
+    + stateroomIds: 523 (, optional)
 
         search based on state room ids
 
-    + reservationStartDate (, optional)
+    + reservationStartDate: '12-7-2016' (, optional)
 
         search based on reservation Start Date
 
-    + reservationEndDate (, optional)
+    + reservationEndDate: '12-5-1989' (, optional)
 
         search based on reservation End Date
 
-    + modifiedParts (, optional)
+    + modifiedParts: xyz (, optional)
 
         search based on modified Parts
 
-    + reservationIds (, optional)
+    + reservationIds: xyz (, optional)
 
         search based on reservation Ids
 
-    + passports (, optional)
+    + passports: xyz (, optional)
 
         search based on passport
 
-    + name (, optional)
+    + name: xyz (, optional)
 
         search based on name
+        
+    + depth: xyz (, optional) 
+    
+        search based on depth
+        
+    + pageNumber: xyz (, optional) 
+    
+        search based on pageNumber
+        
+    + maxResult: xyz (, optional) 
+    
+        search based on maxResult
+        
+    + orderBy: xyz (, optional) 
+    
+        search based on orderBy
         
 + Response 200 (application/json)
 
@@ -520,7 +548,7 @@ list reservation data
 ## phone list [/Guests/{guestId}/Phones{?parts}]
 
 + Parameters
-    + guestId (string, required)
+    + guestId: 27611 (string, required)
         guest id of guest required to list phone
         
 ### list phone [GET]
@@ -532,7 +560,7 @@ retrieves phone list
             WWW-Authenticate: Basic realm="protected"
         
 + Parameters
-    + parts (, optional)
+    + parts: xyz (, optional)
         This parameter defines the Parts of resource that will be returned in the result set.
         
 + Response 200 (application/json)
@@ -569,7 +597,7 @@ retrieves phone list
 ## insert phone [/Guests/{guestId}/Phones]
 
 + Parameters
-    + guestId (string, required)
+    + guestId: 27611 (string, required)
         guest id of guest required to list phone
 
 ### insert phone [POST]
@@ -604,16 +632,16 @@ retrieves phone list
 ## get Phone [/Guests/{guestId}/Phones/{phoneId}{?parts}]
 
 + Parameters
-    + guestId (string, required)
+    + guestId: 27611 (string, required)
         id of the guest whose phone detail needs to be retrieved.
-    + phoneId (string, required)
+    + phoneId: 101 (string, required)
         Unique identifier assigned  to a guest’s phone.
         
 ### retrieves phone [GET /Guests/{guestId}/Phones/{phoneId}{?parts}]
 
 + Parameters
 
-    + parts (, optional)
+    + parts: xyz (, optional)
     
         This parameter defines the Parts of resource that will be returned in the result set.
         
@@ -646,9 +674,9 @@ retrieves phone list
 ## update and delete Phone [/Guests/{guestId}/Phones/{phoneId}]
 
 + Parameters
-    + guestId (string, required)
+    + guestId: 27611 (string, required)
         id of the guest whose phone detail needs to be retrieved.
-    + phoneId 
+    + phoneId: 101 (string, required) 
         Unique identifier assigned  to a guest’s phone.
         
 ### Update Phone [PUT]
