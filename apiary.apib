@@ -123,49 +123,53 @@ list guest data
 
 + Parameters
 
-    + lastNameContains (, optional)
+    + lastNameContains: sa (, optional)
 
         search based on last name
     
-    + firstNameContains (, optional)
+    + firstNameContains: pra (, optional)
 
         search based on first name
 
-    + guestIds (, optional)
+    + guestIds: 123 (, optional)
 
         search based on guestids
 
-    + shipId (, optional)
+    + shipId: 101 (, optional)
 
         search based on ship id
 
-    + stateroomIds (, optional)
+    + stateroomIds: 523 (, optional)
 
         search based on state room ids
 
-    + reservationStartDate (, optional)
+    + reservationStartDate: '12-7-2016' (, optional)
 
         search based on reservation Start Date
 
-    + reservationEndDate (, optional)
+    + reservationEndDate: '12-5-1989' (, optional)
 
         search based on reservation End Date
 
-    + modifiedParts (, optional)
+    + modifiedParts: xyz (, optional)
 
         search based on modified Parts
 
-    + reservationIds (, optional)
+    + reservationIds: xyz (, optional)
 
         search based on reservation Ids
 
-    + passports (, optional)
+    + passports: xyz (, optional)
 
         search based on passport
 
-    + name (, optional)
+    + name: xyz (, optional)
 
         search based on name
+        
+    + depth: xyz (, optional) 
+    
+        search based on depth
         
 + Response 200 (application/json)
 
@@ -231,7 +235,7 @@ insert guest data
 ## Guests Account By Id [/guests/account/{id}]
 
 + Parameters
-    + id (, required)
+    + id: 27611 (, required)
 
         user account id to extract guest record
 
@@ -271,7 +275,7 @@ load guest by user account id
 
 + Parameters
 
-    + id (string, required)
+    + id: 27611 (string, required)
 
         guest id of guest required to retrieve and insert address collection
         
@@ -337,11 +341,11 @@ insert guest
 
 ## Address retrieval, updation and deletion [/guests/{id}/address/{addressId}]
 + Parameters
-    + id (string, required)
+    + id: 27611 (string, required)
 
         guest id of guest required to retrieve and insert address collection
         
-    + addressId (string, required)
+    + addressId: 101 (string, required)
 
         guest id of guest required to retrieve and insert address collection
         
