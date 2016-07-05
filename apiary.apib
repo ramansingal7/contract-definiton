@@ -20,11 +20,11 @@ The main features of the API are as follows-
 
 - Retrieve guests information by user account id
 
-# Group guest
+# Group Guest
 
 ## Guests By Id [/guests/{id}]
 + Parameters
-    + id (, required)
+    + id: 1236 (, required)
 
         guest id to extract guest record
         
@@ -346,7 +346,365 @@ insert guest
         guest id of guest required to retrieve and insert address collection
         
 ### retrieve Address [GET]
+retrieve address
 
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+        
+    +   Attributes (address)
+
++ Response 401 
+
+        {
+            unauthorized
+        }
+        
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404
+
+        {
+            Not Found
+        }
+
+### update address [PUT]
+update address
+
++ Request (application/json)
+
+    + Attributes (address)
+    
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+### delete Address [DELETE]
+delete address
+
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+        
+# Group Guest Reservation
+
+## list [/GuestReservations{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
+
+### list reservations [GET]
+list reservation data
+
++ Parameters
+
+    + lastNameContains (, optional)
+
+        search based on last name
+    
+    + firstNameContains (, optional)
+
+        search based on first name
+
+    + guestIds (, optional)
+
+        search based on guestids
+
+    + shipId (, optional)
+
+        search based on ship id
+
+    + stateroomIds (, optional)
+
+        search based on state room ids
+
+    + reservationStartDate (, optional)
+
+        search based on reservation Start Date
+
+    + reservationEndDate (, optional)
+
+        search based on reservation End Date
+
+    + modifiedParts (, optional)
+
+        search based on modified Parts
+
+    + reservationIds (, optional)
+
+        search based on reservation Ids
+
+    + passports (, optional)
+
+        search based on passport
+
+    + name (, optional)
+
+        search based on name
+        
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
+    + Attributes (array[reservation])    
+    
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+# Group Phone
+
+## phone list [/Guests/{guestId}/Phones{?parts}]
+
++ Parameters
+    + guestId (string, required)
+        guest id of guest required to list phone
+        
+### list phone [GET]
+retrieves phone list
+
++ Request
+    + Headers
+
+            WWW-Authenticate: Basic realm="protected"
+        
++ Parameters
+    + parts (, optional)
+        This parameter defines the Parts of resource that will be returned in the result set.
+        
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
+    + Headers
+
+            WWW-Authenticate: Basic realm="protected"
+            
+    + Attributes (array[phone])    
+    
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+        
+
+## insert phone [/Guests/{guestId}/Phones]
+
++ Parameters
+    + guestId (string, required)
+        guest id of guest required to list phone
+
+### insert phone [POST]
++ Request (application/json)
+
+    + Attributes (phone)
+    
++ Response 201 (application/json)
+
+        {
+            Created
+        }
+
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+## get Phone [/Guests/{guestId}/Phones/{phoneId}{?parts}]
+
++ Parameters
+    + guestId (string, required)
+        id of the guest whose phone detail needs to be retrieved.
+    + phoneId (string, required)
+        Unique identifier assigned  to a guest’s phone.
+        
+### retrieves phone [GET /Guests/{guestId}/Phones/{phoneId}{?parts}]
+
++ Parameters
+
+    + parts (, optional)
+    
+        This parameter defines the Parts of resource that will be returned in the result set.
+        
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
+    + Attributes (array[phone])    
+    
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+## update and delete Phone [/Guests/{guestId}/Phones/{phoneId}]
+
++ Parameters
+    + guestId (string, required)
+        id of the guest whose phone detail needs to be retrieved.
+    + phoneId 
+        Unique identifier assigned  to a guest’s phone.
+        
+### Update Phone [PUT]
+update phone
+
++ Request (application/json)
+
+    + Attributes (phone)
+    
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+### Delete Phone [DELETE]
+update phone
+    
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+        
 # Data Structures
 
 ## Guest (object)
