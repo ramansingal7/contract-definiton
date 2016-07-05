@@ -28,7 +28,7 @@ The main features of the API are as follows-
 
         guest id to extract guest record
         
-### GuestsById [GET]
+### Retrieve Guest [GET]
 Retrieves a guest based on guest id
 
 + Response 200 (application/json)
@@ -116,7 +116,7 @@ Delete a guest
             Unauthorized
         }
 
-## Guests [/guests{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
+## Guest Collection [/guests{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
 
 ### list Guests [GET]
 list guest data
@@ -193,7 +193,7 @@ list guest data
             Unauthorized
         }
 
-## Guests [/guests]
+## Insert guest [/guests]
 
 ### insert Guest [POST]
 insert guest data
@@ -264,7 +264,89 @@ load guest by user account id
         {
             Unauthorized
         }
+ 
+# Group Address
+
+## Address list and insert [/guestsAddress/{id}]
+
++ Parameters
+
+    + id (string, required)
+
+        guest id of guest required to retrieve and insert address collection
         
+### list Addresses [GET]
+list address data
+
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
+    + Attributes (array[address])
+
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+        
+### Insert Guest [POST]
+insert guest
+
++ Request (application/json)
+
+    + Attributes (address)
+    
++ Response 201 (application/json)
+
+        {
+            Created
+        }
+
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+## Address retrieval, updation and deletion [/guests/{id}/address/{addressId}]
++ Parameters
+    + id (string, required)
+
+        guest id of guest required to retrieve and insert address collection
+        
+    + addressId (string, required)
+
+        guest id of guest required to retrieve and insert address collection
+        
+### retrieve Address [GET]
+
 # Data Structures
 
 ## Guest (object)
