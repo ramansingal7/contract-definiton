@@ -20,105 +20,11 @@ The main features of the API are as follows-
 
 - Retrieve guests information by user account id
 
-# Group Guest
+# Group Guests
 
-## Guests By Id [/guests/{id}]
-+ Parameters
-    + id: 1236 (, required)
+## Guests Collection [/guests{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
 
-        guest id to extract guest record
-        
-### Retrieve Guest [GET]
-Retrieves a guest based on guest id
-
-+ Response 200 (application/json)
-
-        {
-            OK
-        }
-        
-    +   Attributes (Guest)
-
-+ Response 401 
-
-        {
-            unauthorized
-        }
-        
-+ Response 500
-
-        {
-            Internal server error
-        }
-        
-+ Response 404
-
-        {
-            Not Found
-        }
-
-### update Guest [PUT]
-update guest.
-
-+ Request (application/json)
-
-    + Attributes (Guest)
-
-+ Response 200 (application/json)
-
-        {
-            OK
-        }
-
-    + Attributes (Guest)
-
-+ Response 500 
-
-        {
-            Internal Server Error
-        }
-
-+ Response 404 
-
-        {
-            Not Found
-        }
-
-+ Response 401 
-
-        {
-            Unauthorized
-        }
-
-### delete Guest [DELETE]
-Delete a guest
-+ Response 200 (application/json)
-
-        {
-            OK
-        }
-    
-+ Response 500 
-
-        {
-            Internal Server Error
-        }
-
-+ Response 404 
-
-        {
-            Not Found
-        }
-
-+ Response 401 
-
-        {
-            Unauthorized
-        }
-
-## Guest Collection [/guests{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
-
-### list Guests [GET]
+### List Guests [GET]
 list guest data
 
 + Parameters
@@ -208,30 +114,90 @@ list guest data
         {
             Unauthorized
         }
+        
 
-## Insert guest [/guests]
+## Guests By Id [/guests/{id}]
++ Parameters
+    + id: 1236 (, required)
 
-### insert Guest [POST]
-insert guest data
+        guest id to extract guest record
+        
+### Retrieve Guest [GET]
+Retrieves a guest based on guest id
 
-+ Request (application/json)
-
-    + Attributes (Guest)
-
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         {
-            Created
+            OK
         }
+        
+    +   Attributes (Guest)
 
-    + Attributes (Guest)
++ Response 401 
 
+        {
+            unauthorized
+        }
+        
 + Response 500
 
         {
             Internal server error
         }
         
++ Response 404
+
+        {
+            Not Found
+        }
+
+### Update Guest [PUT]
+update guest.
+
++ Request (application/json)
+
+    + Attributes (Guest)
+
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+
+    + Attributes (Guest)
+
++ Response 500 
+
+        {
+            Internal Server Error
+        }
+
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
+
+### Delete Guest [DELETE]
+Delete a guest
++ Response 200 (application/json)
+
+        {
+            OK
+        }
+    
++ Response 500 
+
+        {
+            Internal Server Error
+        }
+
 + Response 404 
 
         {
@@ -280,8 +246,44 @@ load guest by user account id
         {
             Unauthorized
         }
+        
+
+## Insert guest [/guests]
+
+### Insert Guest [POST]
+insert guest data
+
++ Request (application/json)
+
+    + Attributes (Guest)
+
++ Response 201 (application/json)
+
+        {
+            Created
+        }
+
+    + Attributes (Guest)
+
++ Response 500
+
+        {
+            Internal server error
+        }
+        
++ Response 404 
+
+        {
+            Not Found
+        }
+
++ Response 401 
+
+        {
+            Unauthorized
+        }
  
-# Group Address
+# Group Addresses
 
 ## Address list and insert [/guestsAddress/{id}]
 
@@ -361,7 +363,7 @@ insert guest
 
         guest id of guest required to retrieve and insert address collection
         
-### retrieve Address [GET]
+### Retrieve Addresses [GET]
 retrieve address
 
 + Response 200 (application/json)
@@ -390,7 +392,7 @@ retrieve address
             Not Found
         }
 
-### update address [PUT]
+### Update address [PUT]
 update address
 
 + Request (application/json)
@@ -421,7 +423,7 @@ update address
             Unauthorized
         }
 
-### delete Address [DELETE]
+### Delete Address [DELETE]
 delete address
 
 + Response 200 (application/json)
@@ -448,11 +450,11 @@ delete address
             Unauthorized
         }
         
-# Group Guest Reservation
+# Group GuestReservations
 
-## list [/GuestReservations{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
+## List [/GuestReservations{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
 
-### list reservations [GET]
+### List Reservations [GET]
 list reservation data
 
 + Parameters
@@ -543,9 +545,9 @@ list reservation data
             Unauthorized
         }
 
-# Group Phone
+# Group Phones
 
-## phone list [/Guests/{guestId}/Phones{?parts}]
+## Phone List [/Guests/{guestId}/Phones{?parts}]
 
 + Parameters
     + guestId: 27611 (string, required)
@@ -594,13 +596,13 @@ retrieves phone list
         }
         
 
-## insert phone [/Guests/{guestId}/Phones]
+## Insert Pchanged cahone [/Guests/{guestId}/Phones]
 
 + Parameters
     + guestId: 27611 (string, required)
         guest id of guest required to list phone
 
-### insert phone [POST]
+### Insert Phone [POST]
 + Request (application/json)
 
     + Attributes (phone)
@@ -629,7 +631,7 @@ retrieves phone list
             Unauthorized
         }
 
-## get Phone [/Guests/{guestId}/Phones/{phoneId}{?parts}]
+## Get Phone [/Guests/{guestId}/Phones/{phoneId}{?parts}]
 
 + Parameters
     + guestId: 27611 (string, required)
@@ -637,7 +639,7 @@ retrieves phone list
     + phoneId: 101 (string, required)
         Unique identifier assigned  to a guest’s phone.
         
-### retrieves phone [GET /Guests/{guestId}/Phones/{phoneId}{?parts}]
+### Retrieves Phone [GET /Guests/{guestId}/Phones/{phoneId}{?parts}]
 
 + Parameters
 
@@ -671,7 +673,7 @@ retrieves phone list
             Unauthorized
         }
 
-## update and delete Phone [/Guests/{guestId}/Phones/{phoneId}]
+## Update and Delete Phone [/Guests/{guestId}/Phones/{phoneId}]
 
 + Parameters
     + guestId: 27611 (string, required)
