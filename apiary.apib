@@ -25,7 +25,7 @@ The main features of the API are as follows-
 ## Guests Collection [/guests{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
 
 ### List Guests [GET]
-list guest data
+List guest data
 
 + Parameters
 
@@ -152,7 +152,7 @@ Retrieves a guest based on guest id
         }
 
 ### Update Guest [PUT]
-update guest.
+Update guest.
 
 + Request (application/json)
 
@@ -219,7 +219,7 @@ Delete a guest
 
 
 ### GuestsAccountById [GET]
-load guest by user account id
+Retrieves guest by user account id
 
 + Response 200 (application/json)
 
@@ -251,7 +251,7 @@ load guest by user account id
 ## Insert Guest [/guests]
 
 ### Insert Guest [POST]
-insert guest data
+Insert guest data
 
 + Request (application/json)
 
@@ -294,7 +294,7 @@ insert guest data
         guest id of guest required to retrieve and insert address collection
         
 ### List Addresses [GET]
-list address data
+List address data
 
 + Response 200 (application/json)
 
@@ -323,7 +323,7 @@ list address data
         }
         
 ### Insert Guest [POST]
-insert guest
+Insert guest
 
 + Request (application/json)
 
@@ -364,7 +364,7 @@ insert guest
         guest id of guest required to retrieve and insert address collection
         
 ### Retrieve Addresses [GET]
-retrieve address
+Retrieve address
 
 + Response 200 (application/json)
 
@@ -393,7 +393,7 @@ retrieve address
         }
 
 ### Update address [PUT]
-update address
+Update address
 
 + Request (application/json)
 
@@ -424,7 +424,7 @@ update address
         }
 
 ### Delete Address [DELETE]
-delete address
+Delete address
 
 + Response 200 (application/json)
 
@@ -455,7 +455,7 @@ delete address
 ## List [/GuestReservations{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
 
 ### List Reservations [GET]
-list reservation data
+List reservation data
 
 + Parameters
 
@@ -553,8 +553,8 @@ list reservation data
     + guestId: 27611 (string, required)
         guest id of guest required to list phone
         
-### list phone [GET]
-retrieves phone list
+### List Phone [GET]
+Retrieves phone list
 
 + Request
     + Headers
@@ -603,6 +603,7 @@ retrieves phone list
         guest id of guest required to list phone
 
 ### Insert Phone [POST]
+Insert phone
 + Request (application/json)
 
     + Attributes (phone)
@@ -640,7 +641,7 @@ retrieves phone list
         Unique identifier assigned  to a guest’s phone.
         
 ### Retrieves Phone [GET /Guests/{guestId}/Phones/{phoneId}{?parts}]
-
+Retrieves phone by phone id and guest id
 + Parameters
 
     + parts: xyz (, optional)
@@ -682,7 +683,7 @@ retrieves phone list
         Unique identifier assigned  to a guest’s phone.
         
 ### Update Phone [PUT]
-update phone
+Update phone
 
 + Request (application/json)
 
@@ -713,7 +714,7 @@ update phone
         }
 
 ### Delete Phone [DELETE]
-update phone
+Delete phone
     
 + Response 200 (application/json)
 
