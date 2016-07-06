@@ -2,6 +2,7 @@ FORMAT: 1A
 HOST: http://ec2-52-77-147-66.ap-southeast-1.compute.amazonaws.com:8080/guestservice
 
 # Guest Service
+
 The purpose of this service is to manage Guest details like Personal Details, Identification details, Visa details, Social media account details, Loyalty Levels etc.
 This document explains how to get started using the Guest api. This document is intended for developers who want to write applications that can interact with the Guest API.
 The main features of the API are as follows-
@@ -20,13 +21,21 @@ The main features of the API are as follows-
 
 - Retrieve guests information by user account id
 
-# Group Guests
+## Authentication
+*Guest API* uses OAuth Authorization. Once you have acquired your token you can use it to access protected resources within token' scope.
 
+# Group Guests    
 ## Guests Collection [/guests{?lastNameContains,firstNameContains,guestIds,shipId,stateroomIds,reservationStartDate,reservationEndDate,modifiedParts,reservationIds,passports,name,depth,pageNumber,maxResult,orderBy}]
 
 ### List Guests [GET]
 List guest data
 
++ Request
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json
+            
 + Parameters
 
     + lastNameContains: sa (, optional)
@@ -121,9 +130,15 @@ List guest data
     + id: 1236 (, required)
 
         guest id to extract guest record
-        
+            
 ### Retrieve Guest [GET]
 Retrieves a guest based on guest id
+        
++ Request
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json   
 
 + Response 200 (application/json)
 
@@ -153,11 +168,15 @@ Retrieves a guest based on guest id
 
 ### Update Guest [PUT]
 Update guest.
-
-+ Request (application/json)
+    
++ Request
 
     + Attributes (Guest)
+    
+    + Headers
 
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json 
 + Response 200 (application/json)
 
         {
@@ -186,6 +205,11 @@ Update guest.
 
 ### Delete Guest [DELETE]
 Delete a guest
++ Request
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json  
 + Response 200 (application/json)
 
         {
@@ -220,7 +244,11 @@ Delete a guest
 
 ### GuestsAccountById [GET]
 Retrieves guest by user account id
++ Request
+    + Headers
 
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json  
 + Response 200 (application/json)
 
         {
@@ -253,10 +281,13 @@ Retrieves guest by user account id
 ### Insert Guest [POST]
 Insert guest data
 
-+ Request (application/json)
++ Request 
 
     + Attributes (Guest)
+    + Headers
 
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json  
 + Response 201 (application/json)
 
         {
@@ -295,7 +326,11 @@ Insert guest data
         
 ### List Addresses [GET]
 List address data
++ Request
+    + Headers
 
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json
 + Response 200 (application/json)
 
         {
@@ -325,10 +360,13 @@ List address data
 ### Insert Guest [POST]
 Insert guest
 
-+ Request (application/json)
++ Request
 
     + Attributes (address)
-    
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json    
 + Response 201 (application/json)
 
         {
@@ -365,7 +403,11 @@ Insert guest
         
 ### Retrieve Addresses [GET]
 Retrieve address
++ Request
+    + Headers
 
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json
 + Response 200 (application/json)
 
         {
@@ -395,10 +437,13 @@ Retrieve address
 ### Update address [PUT]
 Update address
 
-+ Request (application/json)
++ Request
 
     + Attributes (address)
-    
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json
 + Response 200 (application/json)
 
         {
@@ -425,7 +470,11 @@ Update address
 
 ### Delete Address [DELETE]
 Delete address
++ Request
+    + Headers
 
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json
 + Response 200 (application/json)
 
         {
@@ -456,7 +505,11 @@ Delete address
 
 ### List Reservations [GET]
 List reservation data
++ Request
+    + Headers
 
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json
 + Parameters
 
     + lastNameContains: sa (, optional)
@@ -559,7 +612,8 @@ Retrieves phone list
 + Request
     + Headers
 
-            WWW-Authenticate: Basic realm="protected"
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json
         
 + Parameters
     + parts: xyz (, optional)
@@ -599,15 +653,18 @@ Retrieves phone list
 ## Insert Phone [/Guests/{guestId}/Phones]
 
 + Parameters
-    + guestId: 27611 (string, required)
+    + guestId: xyz (string, required)
         guest id of guest required to list phone
 
 ### Insert Phone [POST]
 Insert phone
-+ Request (application/json)
++ Request
 
     + Attributes (phone)
-    
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json    
 + Response 201 (application/json)
 
         {
@@ -642,6 +699,11 @@ Insert phone
         
 ### Retrieves Phone [GET /Guests/{guestId}/Phones/{phoneId}{?parts}]
 Retrieves phone by phone id and guest id
++ Request
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json
 + Parameters
 
     + parts: xyz (, optional)
@@ -685,10 +747,13 @@ Retrieves phone by phone id and guest id
 ### Update Phone [PUT]
 Update phone
 
-+ Request (application/json)
++ Request
 
     + Attributes (phone)
-    
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json    
 + Response 200 (application/json)
 
         {
@@ -715,7 +780,11 @@ Update phone
 
 ### Delete Phone [DELETE]
 Delete phone
-    
++ Request
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
+            Content-Type: application/json    
 + Response 200 (application/json)
 
         {
