@@ -34,67 +34,67 @@ List guest data
     + Headers
 
             Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzY29wZSI6WyJ3cml0ZSJdLCJleHAiOjE0NjczNjg3OTYsImF1dGhvcml0aWVzIjpbIlJPTEUiXSwianRpIjoiYmE5YmNhYWItMDBkOC00ZGQ3LTliYzMtNjkwNGY1N2QwYmQ2IiwiY2xpZW50X2lkIjoibm9ybWFsLWFwcCJ9.VYWVY4IZMWdHp6kb83cebnX9jv2auf8nuG3ZUW8ANoARZ39AlhPE7w3uVrs29-zW_xHLHBpSJjyZt9fH-LXHs5neUBq6Wn54vmeliCDYjmJMZaQDe9A7cXUIu42tsAh4IciYcxUolTZXWJz0KJzgXBurM8UarlJPTo_h_lSWsBqnG0BD6k5GzhogishVVnYY0lWL_8gDxjv9kLebl2pgAwL3Ze6AV8CRuvSe9Bn0kn-1Kh9d5DVrwhHH7Mx52MHeH_xw5esc9L6x6y3i_tkwaFw_6kwjFJ-6Y2SyGmnnrtbcIvnwHtSQDqyoAC8SbiYI-0rpLT-c2xcT0R_W2QGJWQ
-            Content-Type: application/json
+            Content-Type: application/json, text/plain
             
 + Parameters
 
-    + lastNameContains: sa (, optional)
+    + lastNameContains (, optional)
 
         search based on last name
     
-    + firstNameContains: pra (, optional)
+    + firstNameContains (, optional)
 
         search based on first name
 
-    + guestIds: 123 (, optional)
+    + guestIds (, optional)
 
         search based on guestids
 
-    + shipId: 101 (, optional)
+    + shipId (, optional)
 
         search based on ship id
 
-    + stateroomIds: 523 (, optional)
+    + stateroomIds (, optional)
 
         search based on state room ids
 
-    + reservationStartDate: '12-7-2016' (, optional)
+    + reservationStartDate (, optional)
 
         search based on reservation Start Date
 
-    + reservationEndDate: '12-5-1989' (, optional)
+    + reservationEndDate (, optional)
 
         search based on reservation End Date
 
-    + modifiedParts: xyz (, optional)
+    + modifiedParts (, optional)
 
         search based on modified Parts
 
-    + reservationIds: xyz (, optional)
+    + reservationIds (, optional)
 
         search based on reservation Ids
 
-    + passports: xyz (, optional)
+    + passports (, optional)
 
         search based on passport
 
-    + name: xyz (, optional)
+    + name (, optional)
 
         search based on name
         
-    + depth: xyz (, optional) 
+    + depth (, optional) 
     
         search based on depth
         
-    + pageNumber: xyz (, optional) 
+    + pageNumber (, optional) 
     
         search based on pageNumber
         
-    + maxResult: xyz (, optional) 
+    + maxResult (, optional) 
     
         search based on maxResult
         
-    + orderBy: xyz (, optional) 
+    + orderBy (, optional) 
     
         search based on orderBy
         
@@ -127,7 +127,7 @@ List guest data
 
 ## Guests By Id [/guests/{id}]
 + Parameters
-    + id: 1236 (, required)
+    + id (, required)
 
         guest id to extract guest record
             
@@ -148,19 +148,19 @@ Retrieves a guest based on guest id
         
     +   Attributes (Guest)
 
-+ Response 401 
++ Response 401 (application/json)
 
         {
             unauthorized
         }
         
-+ Response 500
++ Response 500 (application/json)
 
         {
             Internal server error
         }
         
-+ Response 404
++ Response 404 (application/json)
 
         {
             Not Found
@@ -185,19 +185,19 @@ Update guest.
 
     + Attributes (Guest)
 
-+ Response 500 
++ Response 500 (application/json)
 
         {
             Internal Server Error
         }
 
-+ Response 404 
++ Response 404 (application/json)
 
         {
             Not Found
         }
 
-+ Response 401 
++ Response 401 (application/json)
 
         {
             Unauthorized
@@ -237,7 +237,7 @@ Delete a guest
 ## Guests Account By Id [/guests/account/{id}]
 
 + Parameters
-    + id: 27611 (, required)
+    + id (, required)
 
         user account id to extract guest record
 
@@ -320,7 +320,7 @@ Insert guest data
 
 + Parameters
 
-    + id: 27611 (string, required)
+    + id (string, required)
 
         guest id of guest required to retrieve and insert address collection
         
@@ -393,11 +393,11 @@ Insert guest
 
 ## Address Retrieval, Updation and Deletion [/guests/{id}/address/{addressId}]
 + Parameters
-    + id: 27611 (string, required)
+    + id (string, required)
 
         guest id of guest required to retrieve and insert address collection
         
-    + addressId: 101 (string, required)
+    + addressId (string, required)
 
         guest id of guest required to retrieve and insert address collection
         
@@ -512,63 +512,63 @@ List reservation data
             Content-Type: application/json
 + Parameters
 
-    + lastNameContains: sa (, optional)
+    + lastNameContains (, optional)
 
         search based on last name
     
-    + firstNameContains: pra (, optional)
+    + firstNameContains (, optional)
 
         search based on first name
 
-    + guestIds: 123 (, optional)
+    + guestIds (, optional)
 
         search based on guestids
 
-    + shipId: 101 (, optional)
+    + shipId (, optional)
 
         search based on ship id
 
-    + stateroomIds: 523 (, optional)
+    + stateroomIds (, optional)
 
         search based on state room ids
 
-    + reservationStartDate: '12-7-2016' (, optional)
+    + reservationStartDate (, optional)
 
         search based on reservation Start Date
 
-    + reservationEndDate: '12-5-1989' (, optional)
+    + reservationEndDate (, optional)
 
         search based on reservation End Date
 
-    + modifiedParts: xyz (, optional)
+    + modifiedParts (, optional)
 
         search based on modified Parts
 
-    + reservationIds: xyz (, optional)
+    + reservationIds (, optional)
 
         search based on reservation Ids
 
-    + passports: xyz (, optional)
+    + passports (, optional)
 
         search based on passport
 
-    + name: xyz (, optional)
+    + name (, optional)
 
         search based on name
         
-    + depth: xyz (, optional) 
+    + depth (, optional) 
     
         search based on depth
         
-    + pageNumber: xyz (, optional) 
+    + pageNumber (, optional) 
     
         search based on pageNumber
         
-    + maxResult: xyz (, optional) 
+    + maxResult (, optional) 
     
         search based on maxResult
         
-    + orderBy: xyz (, optional) 
+    + orderBy (, optional) 
     
         search based on orderBy
         
@@ -603,7 +603,7 @@ List reservation data
 ## Phone List [/Guests/{guestId}/Phones{?parts}]
 
 + Parameters
-    + guestId: 27611 (string, required)
+    + guestId (string, required)
         guest id of guest required to list phone
         
 ### List Phone [GET]
@@ -616,7 +616,7 @@ Retrieves phone list
             Content-Type: application/json
         
 + Parameters
-    + parts: xyz (, optional)
+    + parts (, optional)
         This parameter defines the Parts of resource that will be returned in the result set.
         
 + Response 200 (application/json)
@@ -624,10 +624,6 @@ Retrieves phone list
         {
             OK
         }
-
-    + Headers
-
-            WWW-Authenticate: Basic realm="protected"
             
     + Attributes (array[phone])    
     
@@ -653,7 +649,7 @@ Retrieves phone list
 ## Insert Phone [/Guests/{guestId}/Phones]
 
 + Parameters
-    + guestId: xyz (string, required)
+    + guestId (string, required)
         guest id of guest required to list phone
 
 ### Insert Phone [POST]
@@ -692,9 +688,9 @@ Insert phone
 ## Get Phone [/Guests/{guestId}/Phones/{phoneId}{?parts}]
 
 + Parameters
-    + guestId: 27611 (string, required)
+    + guestId (string, required)
         id of the guest whose phone detail needs to be retrieved.
-    + phoneId: 101 (string, required)
+    + phoneId (string, required)
         Unique identifier assigned  to a guest’s phone.
         
 ### Retrieves Phone [GET /Guests/{guestId}/Phones/{phoneId}{?parts}]
@@ -706,7 +702,7 @@ Retrieves phone by phone id and guest id
             Content-Type: application/json
 + Parameters
 
-    + parts: xyz (, optional)
+    + parts (, optional)
     
         This parameter defines the Parts of resource that will be returned in the result set.
         
@@ -739,9 +735,9 @@ Retrieves phone by phone id and guest id
 ## Update and Delete Phone [/Guests/{guestId}/Phones/{phoneId}]
 
 + Parameters
-    + guestId: 27611 (string, required)
+    + guestId (string, required)
         id of the guest whose phone detail needs to be retrieved.
-    + phoneId: 101 (string, required) 
+    + phoneId (string, required) 
         Unique identifier assigned  to a guest’s phone.
         
 ### Update Phone [PUT]
