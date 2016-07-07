@@ -127,7 +127,7 @@ List guest data
 
 ## Guests By Id [/guests/{id}]
 + Parameters
-    + id (, required)
+    + id: 101 (, required)
 
         guest id to extract guest record
             
@@ -237,7 +237,7 @@ Delete a guest
 ## Guests Account By Id [/guests/account/{id}]
 
 + Parameters
-    + id (, required)
+    + id: 101 (, required)
 
         user account id to extract guest record
 
@@ -320,7 +320,7 @@ Insert guest data
 
 + Parameters
 
-    + id (string, required)
+    + id: 101 (string, required)
 
         guest id of guest required to retrieve and insert address collection
         
@@ -393,7 +393,7 @@ Insert guest
 
 ## Address Retrieval, Updation and Deletion [/guests/{id}/address/{addressId}]
 + Parameters
-    + id (string, required)
+    + id: 101 (string, required)
 
         guest id of guest required to retrieve and insert address collection
         
@@ -603,7 +603,7 @@ List reservation data
 ## Phone List [/Guests/{guestId}/Phones{?parts}]
 
 + Parameters
-    + guestId (string, required)
+    + guestId: 101 (string, required)
         guest id of guest required to list phone
         
 ### List Phone [GET]
@@ -649,7 +649,7 @@ Retrieves phone list
 ## Insert Phone [/Guests/{guestId}/Phones]
 
 + Parameters
-    + guestId (string, required)
+    + guestId: 101 (string, required)
         guest id of guest required to list phone
 
 ### Insert Phone [POST]
@@ -688,9 +688,9 @@ Insert phone
 ## Get Phone [/Guests/{guestId}/Phones/{phoneId}{?parts}]
 
 + Parameters
-    + guestId (string, required)
+    + guestId: 101 (string, required)
         id of the guest whose phone detail needs to be retrieved.
-    + phoneId (string, required)
+    + phoneId: 5632 (string, required)
         Unique identifier assigned  to a guest’s phone.
         
 ### Retrieves Phone [GET /Guests/{guestId}/Phones/{phoneId}{?parts}]
@@ -735,9 +735,9 @@ Retrieves phone by phone id and guest id
 ## Update and Delete Phone [/Guests/{guestId}/Phones/{phoneId}]
 
 + Parameters
-    + guestId (string, required)
+    + guestId: 101 (string, required)
         id of the guest whose phone detail needs to be retrieved.
-    + phoneId (string, required) 
+    + phoneId: 5632 (string, required) 
         Unique identifier assigned  to a guest’s phone.
         
 ### Update Phone [PUT]
